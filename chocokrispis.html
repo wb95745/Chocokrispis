@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test para mi Chocokrispis 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      color: #333;
+    }
+
+    h1, h2 {
+      color: #d63384;
+      text-align: center;
+    }
+
+    .seccion {
+      background-color: #fff;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .pregunta {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #e0569e;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-align: center;
+      color: #c71585;
+      white-space: pre-line;
+    }
+
+    .corazon {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="seccion">
+    <div class="corazon">💖 Test con Amor para Ti 💖</div>
+    <h1>Repasemos Juntos 🧠 + ❤️</h1>
+
+    <h2>📌 VPN (Valor Presente Neto)</h2>
+    <p>Es la suma del valor presente de los flujos de efectivo futuros menos la inversión inicial. Si el VPN es mayor a cero, el proyecto es rentable (como tú, que vales más que todo oro del mundo ✨).</p>
+
+    <h2>📌 TIR (Tasa Interna de Retorno)</h2>
+    <p>Es la tasa de descuento que hace que el VPN sea cero. Si la TIR es mayor que la tasa mínima aceptable, ¡es amor seguro! Digo... ¡proyecto aceptado! 😄</p>
+
+    <h2>📌 VAUE (Valor Anual Uniforme Equivalente)</h2>
+    <p>Sirve para comparar proyectos con distintas duraciones, convirtiendo todo a pagos o ingresos anuales constantes. Como comparar momentos contigo: todos me hacen feliz, pero algunos duran más 💕.</p>
+  </div>
+
+  <div class="seccion">
+    <h1>📝 Test del Cerebro y del Corazón</h1>
+    <form id="testForm">
+      <div class="pregunta">
+        <p>1. ¿Qué representa el Valor Presente Neto (VPN)?</p>
+        <input type="radio" name="q1" value="a"> La ganancia total sin descontar<br>
+        <input type="radio" name="q1" value="b"> El valor de los flujos de efectivo futuros traídos al presente<br>
+        <input type="radio" name="q1" value="c"> El capital inicial invertido<br>
+      </div>
+
+      <div class="pregunta">
+        <p>2. Si el VPN es mayor que cero, ¿qué decisión se toma?</p>
+        <input type="radio" name="q2" value="a"> Rechazar el proyecto<br>
+        <input type="radio" name="q2" value="b"> Aceptar el proyecto<br>
+        <input type="radio" name="q2" value="c"> Esperar más información<br>
+      </div>
+
+      <div class="pregunta">
+        <p>3. ¿Qué es la TIR?</p>
+        <input type="radio" name="q3" value="a"> Tasa de interés de los bancos<br>
+        <input type="radio" name="q3" value="b"> La tasa que hace que el VPN sea cero<br>
+        <input type="radio" name="q3" value="c"> El rendimiento mínimo esperado<br>
+      </div>
+
+      <div class="pregunta">
+        <p>4. Si la TIR es mayor que la tasa mínima aceptable de rendimiento:</p>
+        <input type="radio" name="q4" value="a"> Se rechaza el proyecto<br>
+        <input type="radio" name="q4" value="b"> El proyecto es financieramente viable<br>
+        <input type="radio" name="q4" value="c"> Se suspende la inversión<br>
+      </div>
+
+      <div class="pregunta">
+        <p>5. ¿Para qué se usa el Valor Anual Uniforme Equivalente (VAUE)?</p>
+        <input type="radio" name="q5" value="a"> Para convertir todos los flujos a un valor mensual<br>
+        <input type="radio" name="q5" value="b"> Para comparar proyectos con diferente vida útil<br>
+        <input type="radio" name="q5" value="c"> Para calcular los impuestos de un proyecto<br>
+      </div>
+
+      <button type="button" onclick="calcularResultado()">Enviar con amor 💌</button>
+    </form>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularResultado() {
+      const respuestasCorrectas = {
+        q1: "b",
+        q2: "b",
+        q3: "b",
+        q4: "b",
+        q5: "b"
+      };
+
+      let score = 0;
+      let total = Object.keys(respuestasCorrectas).length;
+
+      for (let key in respuestasCorrectas) {
+        const seleccion = document.querySelector(`input[name="${key}"]:checked`);
+        if (seleccion && seleccion.value === respuestasCorrectas[key]) {
+          score++;
+        }
+      }
+
+      const resultado = document.getElementById("resultado");
+
+      if (score === total) {
+        resultado.innerText = 
+          `✨ Obtuviste ${score}/${total} respuestas correctas. ¡Eres un genio y el amor de mi vida! 💖\n\n` +
+          `Te amo, mi Chocokrispis. Primero Dios lograrás ganar tu examen. Estoy muy orgullosa de ti. 🫶`;
+      } else if (score >= 3) {
+        resultado.innerText =
+          `😊 Obtuviste ${score}/${total}. Estás muy cerca, y sé que vas a lograrlo con fe y esfuerzo. 💪✨\n\n` +
+          `Te amo, mi Chocokrispis. ¡Nunca te rindas!`;
+      } else {
+        resultado.innerText = 
+          `💞 Obtuviste ${score}/${total}. No importa el resultado, mi amor. Yo creo en ti, y sé que primero Dios vas a ganar tu examen.\n\n` +
+          `Te amo, Chocokrispis. Siempre voy a estar contigo. 🌟`;
+      }
+    }
+  </script>
+</body>
+</html>
